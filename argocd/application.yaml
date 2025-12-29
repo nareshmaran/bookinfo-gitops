@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/<your-username>/bookinfo-gitops
+    repoURL: https://github.com/nareshmaran/bookinfo-gitops
     targetRevision: main
     path: base
   destination:
