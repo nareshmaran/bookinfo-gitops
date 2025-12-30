@@ -4,15 +4,11 @@ metadata:
   name: bookinfo-canary
   namespace: argocd
 spec:
-  project: default
+  spec:
   source:
     repoURL: https://github.com/nareshmaran/bookinfo-gitops
     targetRevision: main
-    path: .
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: apps
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+    path: bookinfo-helm
+    helm:
+      valueFiles:
+        - values.yaml

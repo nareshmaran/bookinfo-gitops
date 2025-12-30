@@ -1,0 +1,20 @@
+{{- if .Values.reviews.canary.enabled }}
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: reviews
+  namespace: {{ .Values.namespace }}
+spec:
+  hosts:
+    - reviews
+  http:
+    - route:
+        - destination:
+            host: reviews
+            subset: v1
+          weight: {{ .Values.reviews.canary.v1Weight }}
+        - destination:
+            host: reviews
+            subset: v3
+          weight: {{ .Values.reviews.canary.v3Weight }}
+{{- end }}

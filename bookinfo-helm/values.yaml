@@ -1,0 +1,7 @@
+namespace: apps
+
+reviews:
+  canary:
+    enabled: true
+    v1Weight: 90
+    v3Weight: 10
